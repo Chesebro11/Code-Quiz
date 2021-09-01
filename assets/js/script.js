@@ -112,7 +112,7 @@ function check(event) {
 
     if (questionIndex >= questions.length) {
         theEnd();
-        createDiv.textContent = "The quiz is over!" + "" + "You scored " + score + "/" + " You got " + questions.length + " Correct!";
+        createDiv.textContent = "The quiz is over! " + "" + "You scored " + score + " points!";
     }
     else {
         render(questions);
@@ -191,7 +191,7 @@ function theEnd() {
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
             // Travels to final page
-            window.location.replace("./HighScores.html");
+            window.location.replace("./highscores.html");
         }
     });
 
