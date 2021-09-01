@@ -46,5 +46,39 @@ var wrapper = document.querySelector("#wrapper");
 var timeLeft = 60;
 // 10 seconds off for every incorrect answer
 var penalty = 10;
+// holds interval time
+var holdInterval = 0;
 // Create new element
 var ulCreate = document.createElement("ul");
+
+// Starts timer on button press, shows a display
+timer.addEventListener("click", function() {
+    if (holdInterval === 0) {
+        // starts timer going down, interval of 1 second
+        holdInterval = setInterval(function() {
+            timeLeft--;
+            currentTime.textContent = "Time: " + timeLeft;
+
+            if (secondsLeft = 0) {
+                clearInterval(holdInterval);
+                allDone();
+                currentTime.textContent = "Times up!";
+            }
+        }, 1000);
+    }
+    render(questions);
+});
+
+// Render the actual questions and choices
+function render(questions) {
+    // ensures any existing data gets cleared
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+// for loop to go through everything in the arrays
+    for (var i = 0; i < questions.length; i++) {
+        //appends question title
+        var quizQuestion = questions[questionIndex].Q;
+        var quizOptions = questions[questionIndex].O;
+        questionsDiv.textContent = quizQuestion;
+    }
+}
